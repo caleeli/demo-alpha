@@ -1,0 +1,31 @@
+{
+  "selectedFolder": {
+    "id": 1,
+    "name": "Default"
+  },
+  "selectedProcess": {
+    "Id": "proc-1",
+    "Name": "InvoiceBot"
+  },
+  "selectedMachine": {
+    "Id": "m1",
+    "Name": "Host"
+  },
+  "selectedBot": {
+    "Id": "b1",
+    "Name": "Bot"
+  },
+  "inboundConfig": [
+    {
+      "key": "orderId",
+      "value": "order_id"
+    }
+  ],
+  "dataMapping": [
+    {
+      "key": "rpa_status",
+      "value": "status",
+      "format": "dotNotation"
+    }
+  ]
+}

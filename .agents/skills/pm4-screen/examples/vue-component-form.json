@@ -1,0 +1,44 @@
+{
+  "title": "Pet Registration Form",
+  "description": "Default FORM pattern: Vue Component Editor mount. Owner registers a pet; UI/styles/calcs live in the Vue SFC; computed and watchers stay empty",
+  "type": "FORM",
+  "screen_category_id": "SCREEN_CATEGORY_ID",
+  "config": [
+    {
+      "name": "Page 1",
+      "order": 1,
+      "items": [
+        {
+          "uuid": "00000000-0000-4000-8000-000000000001",
+          "component": "VueRenderPreview",
+          "editor-component": "VueRenderEditor",
+          "editor-control": "VueRenderPreview",
+          "label": "Vue component Editor",
+          "inspector": [],
+          "config": {
+            "icon": "fas fa-pencil-ruler",
+            "interactive": true,
+            "componentName": "PetRegistrationForm",
+            "templateVue": "<PetRegistrationForm v-model=\"data\" :submit=\"submit\" :species-collection-id=\"SPECIES_COLLECTION_ID\" />",
+            "handlerVue": "return {\n  data() {\n    const transientData = this.getData();\n    if (transientData.petName === undefined) {\n      this.$set(transientData, 'petName', '');\n    }\n    return {};\n  },\n};",
+            "renderVarHtml": null,
+            "ignoreMustache": true
+          }
+        }
+      ]
+    }
+  ],
+  "computed": [],
+  "watchers": [],
+  "preview_presets": [
+    {
+      "title": "Empty / start",
+      "data": "{\"petName\":\"\",\"species\":\"\"}"
+    },
+    {
+      "title": "Happy path",
+      "data": "{\"petName\":\"Mochi\",\"species\":\"dog\"}"
+    }
+  ],
+  "custom_css": null
+}

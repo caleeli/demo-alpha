@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:pm="http://processmaker.com/BPMN/2.0/Schema.xsd" id="Definitions_DocuSign" targetNamespace="http://bpmn.io/schema/bpmn" exporter="ProcessMaker Modeler" exporterVersion="1.0">
+  <bpmn:process id="ProcessId" name="Send Contract For Signature" isExecutable="true">
+    <bpmn:startEvent id="node_1" name="Start">
+      <bpmn:outgoing>node_1-node_2</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:callActivity id="node_2" name="Send contract for signature" calledElement="ProcessId-DOCUSIGN_SUBPROCESS_ID" pm:allowInterstitial="true" pm:interstitialScreenRef="DocuSignWait" pm:config="{&#34;contentType&#34;:&#34;template&#34;,&#34;templateId&#34;:&#34;00000000-0000-0000-0000-000000000000&#34;,&#34;documentName&#34;:&#34;Contract&#34;,&#34;templateRoles&#34;:[{&#34;recipientId&#34;:&#34;1&#34;,&#34;roleName&#34;:&#34;Signer&#34;,&#34;type&#34;:&#34;requester&#34;}],&#34;waitCompleted&#34;:true,&#34;outputVariable&#34;:&#34;envelope&#34;,&#34;content&#34;:&#34;&#34;,&#34;screenId&#34;:&#34;&#34;}">
+      <bpmn:incoming>node_1-node_2</bpmn:incoming>
+      <bpmn:outgoing>node_2-node_3</bpmn:outgoing>
+    </bpmn:callActivity>
+    <bpmn:endEvent id="node_3" name="End">
+      <bpmn:incoming>node_2-node_3</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="node_1-node_2" sourceRef="node_1" targetRef="node_2" />
+    <bpmn:sequenceFlow id="node_2-node_3" sourceRef="node_2" targetRef="node_3" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="ProcessId">
+      <bpmndi:BPMNShape id="node_1_di" bpmnElement="node_1">
+        <dc:Bounds x="150" y="150" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="node_2_di" bpmnElement="node_2">
+        <dc:Bounds x="250" y="130" width="116" height="76" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="node_3_di" bpmnElement="node_3">
+        <dc:Bounds x="430" y="150" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="node_1-node_2_di" bpmnElement="node_1-node_2">
+        <di:waypoint x="186" y="168" />
+        <di:waypoint x="250" y="168" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="node_2-node_3_di" bpmnElement="node_2-node_3">
+        <di:waypoint x="366" y="168" />
+        <di:waypoint x="430" y="168" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:definitions xmlns:b="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:pm="http://processmaker.com/BPMN/2.0/Schema.xsd" id="Defs" targetNamespace="urn:beautify-demo">
+  <b:collaboration id="Collaboration">
+    <b:participant id="Applicant" name="Applicant" processRef="Application"/>
+    <b:participant id="Office" name="Back office" processRef="Verification"/>
+    <b:participant id="Archive" name="External archive"/>
+    <b:messageFlow id="request" name="Application" sourceRef="capture" targetRef="receive"/>
+    <b:messageFlow id="response" name="Verification result" sourceRef="reply" targetRef="review"/>
+    <b:messageFlow id="archive" name="Audit copy" sourceRef="capture" targetRef="Archive"/>
+    <b:messageFlow id="receipt" sourceRef="Archive" targetRef="done"/>
+  </b:collaboration>
+  <b:process id="Application" isExecutable="true">
+    <b:laneSet id="applicationLanes">
+      <b:lane id="intake" name="Intake">
+        <b:flowNodeRef>start</b:flowNodeRef><b:flowNodeRef>capture</b:flowNodeRef><b:flowNodeRef>decision</b:flowNodeRef><b:flowNodeRef>fix</b:flowNodeRef>
+        <b:childLaneSet id="intakeLanes">
+          <b:lane id="captureLane" name="Capture"><b:flowNodeRef>start</b:flowNodeRef><b:flowNodeRef>capture</b:flowNodeRef><b:flowNodeRef>decision</b:flowNodeRef></b:lane>
+          <b:lane id="correctionLane" name="Corrections"><b:flowNodeRef>fix</b:flowNodeRef></b:lane>
+        </b:childLaneSet>
+      </b:lane>
+      <b:lane id="reviewLane" name="Review"><b:flowNodeRef>review</b:flowNodeRef><b:flowNodeRef>done</b:flowNodeRef><b:flowNodeRef>expired</b:flowNodeRef></b:lane>
+      <b:lane id="emptyLane" name="Reserved"/>
+    </b:laneSet>
+    <b:startEvent id="start" name="Start"><b:outgoing>f1</b:outgoing></b:startEvent>
+    <b:task id="capture" name="Capture application" pm:screenRef="42" pm:assignment="requester"><b:incoming>f1</b:incoming><b:incoming>f5</b:incoming><b:outgoing>f2</b:outgoing></b:task>
+    <b:boundaryEvent id="timeout" name="Deadline" attachedToRef="capture"><b:outgoing>f7</b:outgoing><b:timerEventDefinition><b:timeDuration>PT1H</b:timeDuration></b:timerEventDefinition></b:boundaryEvent>
+    <b:exclusiveGateway id="decision" name="Complete?" default="f4"><b:incoming>f2</b:incoming><b:outgoing>f3</b:outgoing><b:outgoing>f4</b:outgoing></b:exclusiveGateway>
+    <b:task id="fix" name="Correct application"><b:incoming>f4</b:incoming><b:outgoing>f5</b:outgoing></b:task>
+    <b:subProcess id="review" name="Review application">
+      <b:incoming>f3</b:incoming><b:outgoing>f6</b:outgoing>
+      <b:startEvent id="reviewStart"><b:outgoing>r1</b:outgoing></b:startEvent>
+      <b:task id="reviewTask" name="Check evidence"><b:incoming>r1</b:incoming><b:outgoing>r2</b:outgoing></b:task>
+      <b:endEvent id="reviewEnd"><b:incoming>r2</b:incoming></b:endEvent>
+      <b:sequenceFlow id="r1" sourceRef="reviewStart" targetRef="reviewTask"/>
+      <b:sequenceFlow id="r2" sourceRef="reviewTask" targetRef="reviewEnd"/>
+    </b:subProcess>
+    <b:endEvent id="done" name="Completed"><b:incoming>f6</b:incoming></b:endEvent>
+    <b:endEvent id="expired" name="Expired"><b:incoming>f7</b:incoming></b:endEvent>
+    <b:sequenceFlow id="f1" sourceRef="start" targetRef="capture"/>
+    <b:sequenceFlow id="f2" sourceRef="capture" targetRef="decision"/>
+    <b:sequenceFlow id="f3" sourceRef="decision" targetRef="review" name="Yes"><b:conditionExpression><![CDATA[complete === true]]></b:conditionExpression></b:sequenceFlow>
+    <b:sequenceFlow id="f4" sourceRef="decision" targetRef="fix" name="No"/>
+    <b:sequenceFlow id="f5" sourceRef="fix" targetRef="capture"/>
+    <b:sequenceFlow id="f6" sourceRef="review" targetRef="done"/>
+    <b:sequenceFlow id="f7" sourceRef="timeout" targetRef="expired"/>
+  </b:process>
+  <b:process id="Verification" isExecutable="false">
+    <b:receiveTask id="receive" name="Receive application"><b:outgoing>v1</b:outgoing></b:receiveTask>
+    <b:sendTask id="reply" name="Send verification"><b:incoming>v1</b:incoming></b:sendTask>
+    <b:sequenceFlow id="v1" sourceRef="receive" targetRef="reply"/>
+  </b:process>
+</b:definitions>

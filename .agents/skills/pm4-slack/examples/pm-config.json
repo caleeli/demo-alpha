@@ -1,0 +1,7 @@
+{
+  "channel": {
+    "id": "C0123456789",
+    "name": "general"
+  },
+  "textBody": "Case {{case_number}} is done"
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Empty / start",
+    "data": "{\"email\":\"\",\"contact\":{}}"
+  },
+  {
+    "title": "OTP pending",
+    "data": "{\"email\":\"jane.doe@example.com\",\"one_time_password\":\"\",\"contact\":{},\"search_contact\":{\"found\":true,\"otp_hash\":\"abc123hash\"}}"
+  },
+  {
+    "title": "Contact found — USA",
+    "data": "{\"email\":\"jane.doe@example.com\",\"contact\":{\"id\":\"hs-1001\",\"first_name\":\"Jane\",\"last_name\":\"Doe\",\"email\":\"jane.doe@example.com\",\"phone\":\"4045550199\",\"address\":\"2455 Cumberland Pkwy\",\"suite\":\"\",\"country\":\"USA\",\"city\":\"Atlanta\",\"state\":\"Georgia\",\"state_usa\":\"Georgia\",\"state_other\":\"\",\"zip\":\"30339\"},\"search_contact\":{\"found\":true,\"otp_hash\":\"abc123hash\"},\"edit_user_information\":false}"
+  },
+  {
+    "title": "Registration not found",
+    "data": "{\"email\":\"new.owner@example.com\",\"contact\":{},\"search_contact\":{\"found\":false},\"register\":\"new\"}"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "resources/css/package.css": {
+    "file": "css/package.css",
+    "src": "resources/css/package.css",
+    "isEntry": true,
+    "name": "package",
+    "names": [
+      "package.css"
+    ]
+  },
+  "resources/js/package.js": {
+    "file": "js/package2.js",
+    "name": "package",
+    "src": "resources/js/package.js",
+    "isEntry": true
+  }
+}

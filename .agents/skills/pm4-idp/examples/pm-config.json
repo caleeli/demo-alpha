@@ -1,0 +1,14 @@
+{
+  "fileId": "idp_file",
+  "document_type": {
+    "id": "7a6b5c4d-0000-0000-0000-000000000001",
+    "name": "INVOICE"
+  },
+  "destination": {
+    "id": "0e699036-a5f0-46af-9961-fedc51cfda4a",
+    "name": "TRAINING"
+  },
+  "useDocumentTypeRequestVariable": false,
+  "useDestinationRequestVariable": false,
+  "splitDocument": false
+}

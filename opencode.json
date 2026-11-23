@@ -1,0 +1,25 @@
+{
+    "$schema": "https://opencode.ai/config.json",
+    "mcp": {
+        "processmaker-processes": {
+            "type": "remote",
+            "url": "https://pm4.local:8092/mcp/processes",
+            "enabled": true
+        },
+        "processmaker-screens": {
+            "type": "remote",
+            "url": "https://pm4.local:8092/mcp/screens",
+            "enabled": true
+        },
+        "processmaker-data-connectors": {
+            "type": "remote",
+            "url": "https://pm4.local:8092/mcp/data-connectors",
+            "enabled": true
+        },
+        "processmaker-flow-genies": {
+            "type": "remote",
+            "url": "https://pm4.local:8092/mcp/flow-genies",
+            "enabled": true
+        }
+    }
+}

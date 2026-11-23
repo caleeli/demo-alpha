@@ -1,0 +1,30 @@
+{
+  "web_entry": {
+    "require_valid_session": false,
+    "screen_id": 12,
+    "exclude_data": [],
+    "completed_action": "SCREEN",
+    "completed_screen_id": 13,
+    "completed_url": null,
+    "enable_query_params": false,
+    "enable_password_protect": false,
+    "password": null,
+    "embed": {
+      "position": "full",
+      "title": "Request form",
+      "icon": "question-circle",
+      "color": [
+        "#1f83b4"
+      ]
+    },
+    "webentryRouteConfig": {
+      "nodeId": "node_1",
+      "nodeType": null,
+      "processId": 1,
+      "parameters": [],
+      "firstUrlSegment": null,
+      "urlType": "standard-url",
+      "entryUrl": "https://HOST/webentry/1/node_1"
+    }
+  }
+}

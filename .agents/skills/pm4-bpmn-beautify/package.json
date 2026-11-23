@@ -1,0 +1,10 @@
+{
+  "name": "pm4-bpmn-beautify",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "bin": { "pm4-bpmn-beautify": "scripts/cli.mjs" },
+  "scripts": { "test": "node --test tests/*.test.mjs" },
+  "dependencies": { "@xmldom/xmldom": "0.9.12", "elkjs": "0.12.1" }
+}

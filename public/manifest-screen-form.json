@@ -1,0 +1,8 @@
+{
+  "resources/js/designer/screen-builder-form-components.js": {
+    "file": "js/screen-builder-form-components.js",
+    "name": "screen-builder-form-components",
+    "src": "resources/js/designer/screen-builder-form-components.js",
+    "isEntry": true
+  }
+}

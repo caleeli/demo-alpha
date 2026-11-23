@@ -1,0 +1,29 @@
+{
+  "web_entry": {
+    "require_valid_session": true,
+    "screen_id": null,
+    "exclude_data": [
+      "internal_notes"
+    ],
+    "completed_action": "URL",
+    "completed_screen_id": null,
+    "completed_url": "https://example.com/thanks?case={{_request.id}}",
+    "embed": {
+      "position": "full",
+      "title": "Form",
+      "icon": "question-circle",
+      "color": [
+        "#1f83b4"
+      ]
+    },
+    "webentryRouteConfig": {
+      "nodeId": "node_2",
+      "nodeType": null,
+      "processId": 1,
+      "parameters": [],
+      "firstUrlSegment": null,
+      "urlType": "standard-url",
+      "entryUrl": "https://HOST/webentry/1/node_2"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "fileId": "idp_file",
+  "document_type": "{{document_type}}",
+  "destination": "{{folder_name}}",
+  "useDocumentTypeRequestVariable": true,
+  "useDestinationRequestVariable": true,
+  "splitDocument": false
+}

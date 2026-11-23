@@ -1,0 +1,20 @@
+{
+    "servers": {
+        "processmaker-processes": {
+            "type": "http",
+            "url": "https://pm4.local:8092/mcp/processes"
+        },
+        "processmaker-screens": {
+            "type": "http",
+            "url": "https://pm4.local:8092/mcp/screens"
+        },
+        "processmaker-data-connectors": {
+            "type": "http",
+            "url": "https://pm4.local:8092/mcp/data-connectors"
+        },
+        "processmaker-flow-genies": {
+            "type": "http",
+            "url": "https://pm4.local:8092/mcp/flow-genies"
+        }
+    }
+}
